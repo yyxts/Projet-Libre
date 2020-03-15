@@ -16,6 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activity.AddRemindActivity" />
+        <activity
+            android:name=".Activity.RemindListActivity"
+            android:label="@string/title_activity_remind_list" />
+        <activity
+            android:name=".Activity.MedicineListActivity"
+            android:label="@string/title_activity_medicine_list"></activity>
     </application>
 
 </manifest>

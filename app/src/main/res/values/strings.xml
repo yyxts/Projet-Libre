@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ProjetLibre</string>
+    <string name="title_activity_remind_list">RemindListActivity</string>
+    <string name="title_activity_medicine_list">MedicineListActivity</string>
 </resources>
