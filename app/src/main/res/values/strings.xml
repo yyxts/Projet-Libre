@@ -1,5 +1,12 @@
 <resources>
-    <string name="app_name">ProjetLibre</string>
+    <string name="app_name">Health Care Application</string>
     <string name="title_activity_remind_list">RemindListActivity</string>
     <string name="title_activity_medicine_list">MedicineListActivity</string>
+    <string-array name="spinnerdosageunit">
+        <item>tablet</item>
+        <item>g</item>
+        <item>mg</item>
+        <item>ml</item>
+        <item>cup</item>
+    </string-array>
 </resources>

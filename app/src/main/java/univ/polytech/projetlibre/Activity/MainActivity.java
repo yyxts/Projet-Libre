@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         buttonReminder = findViewById(R.id.button1);
         buttonMedicine = findViewById(R.id.button2);
         buttonQuit = findViewById(R.id.button3);
