@@ -9,12 +9,12 @@ public class User implements Serializable{
     private String firstname;
     private int userID;
     private String address;
-    private Date birthday;
+    private int birthday;
     private int sex;
     private String phone;
 
     //Construction Fonction
-    public User(String lastname, String firstname, int userID, String address, Date birthday, int sex, String phone) {
+    public User(String lastname, String firstname, int userID, String address, int birthday, int sex, String phone) {
         this.lastname = lastname;
         this.firstname = firstname;
         this.userID = userID;
@@ -57,11 +57,11 @@ public class User implements Serializable{
         this.address = address;
     }
 
-    public Date getBirthday() {
+    public int getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(int birthday) {
         this.birthday = birthday;
     }
 

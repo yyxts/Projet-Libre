@@ -7,10 +7,10 @@ public class Reminder {
     private int remID;
     private int userID;
     private int medID;
-    private Time remtime;
+    private int remtime;
 
     //Construction Fonction
-    public Reminder(int remID, int userID, int medID, Time remtime) {
+    public Reminder(int remID, int userID, int medID, int remtime) {
         this.remID = remID;
         this.userID = userID;
         this.medID = medID;
@@ -42,11 +42,11 @@ public class Reminder {
         this.medID = medID;
     }
 
-    public Time getRemtime() {
+    public int getRemtime() {
         return remtime;
     }
 
-    public void setRemtime(Time remtime) {
+    public void setRemtime(int remtime) {
         this.remtime = remtime;
     }
 }

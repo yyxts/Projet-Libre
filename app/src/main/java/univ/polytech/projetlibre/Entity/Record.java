@@ -8,11 +8,11 @@ public class Record {
     //Entity for Records
     private int userID;
     private int medID;
-    private Date recdate;
-    private Time rectime;
+    private int recdate;
+    private int rectime;
 
     //Construction Fonction
-    public Record(int userID, int medID, Date recdate, Time rectime) {
+    public Record(int userID, int medID, int recdate, int rectime) {
         this.userID = userID;
         this.medID = medID;
         this.recdate = recdate;
@@ -36,19 +36,19 @@ public class Record {
         this.medID = medID;
     }
 
-    public Date getRecdate() {
+    public int getRecdate() {
         return recdate;
     }
 
-    public void setRecdate(Date recdate) {
+    public void setRecdate(int recdate) {
         this.recdate = recdate;
     }
 
-    public Time getRectime() {
+    public int getRectime() {
         return rectime;
     }
 
-    public void setRectime(Time rectime) {
+    public void setRectime(int rectime) {
         this.rectime = rectime;
     }
 }
