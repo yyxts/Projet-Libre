@@ -1,9 +1,12 @@
 package univ.polytech.projetlibre.Entity;
 
+import java.sql.Date;
+
 public class Medicine {
     //Entity for Medicines
     private String medname;
     private int medID;
+<<<<<<< Updated upstream
     private int medexpiredate;
 
     //Construction Fonction
@@ -11,6 +14,15 @@ public class Medicine {
         this.medname = medname;
         this.medID = medID;
         this.medexpiredate = medexpiredate;
+=======
+    private Date medexpire;
+
+    //Construction Fonction
+    public Medicine(String medname, int medID, Date medexpire) {
+        this.medname = medname;
+        this.medID = medID;
+        this.medexpire = medexpire;
+>>>>>>> Stashed changes
     }
 
     //Getter and Setter for Medicines
@@ -33,6 +45,7 @@ public class Medicine {
         this.medID = medID;
     }
 
+<<<<<<< Updated upstream
     public int getMedexpiredate() {
         return medexpiredate;
     }
@@ -42,4 +55,14 @@ public class Medicine {
     }
 
 
+=======
+    public Date getMeddate() {
+        return medexpire;
+    }
+
+    public void setMeddate(Date medexpire) {
+        this.medexpire = medexpire;
+    }
+
+>>>>>>> Stashed changes
 }
