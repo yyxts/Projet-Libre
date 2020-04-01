@@ -7,7 +7,7 @@ public class Medicine {
     private int medexpiredate;
 
     //Construction Fonction
-    public Medicine(String medname, int medID, int medexpiredate) {
+    public Medicine(int medID, String medname, int medexpiredate) {
         this.medname = medname;
         this.medID = medID;
         this.medexpiredate = medexpiredate;

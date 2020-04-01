@@ -35,7 +35,7 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="164dp"
+        android:layout_marginBottom="152dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="Medicine"

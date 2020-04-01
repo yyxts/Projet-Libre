@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activity.AddRecordActivity"></activity>
+        <activity android:name=".Activity.ModificationRemindActivity" />
+        <activity android:name=".Activity.ModificationMedicineActivity" />
+        <activity android:name=".Activity.MedicineListActivity" />
+        <activity android:name=".Activity.UserListActivity" />
         <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,9 +25,12 @@
         <activity
             android:name=".Activity.RemindListActivity"
             android:label="@string/title_activity_remind_list" />
-        <activity
-            android:name=".Activity.MedicineListActivity"
-            android:label="@string/title_activity_medicine_list"></activity>
+
+        <receiver android:name=".Tools.NotificationClickReceiver" />
+        <receiver android:name=".Tools.AlertReceiver" />
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
 
 </manifest>

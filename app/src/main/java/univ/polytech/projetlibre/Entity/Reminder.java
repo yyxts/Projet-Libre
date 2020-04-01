@@ -8,13 +8,15 @@ public class Reminder {
     private int userID;
     private int medID;
     private int remtime;
+    private String remdosage;
 
     //Construction Fonction
-    public Reminder(int remID, int userID, int medID, int remtime) {
+    public Reminder(int remID, int remtime, String remdosage, int userID, int medID) {
         this.remID = remID;
         this.userID = userID;
         this.medID = medID;
         this.remtime = remtime;
+        this.remdosage = remdosage;
     }
 
     //Getter and Setter for Reminders
@@ -48,5 +50,13 @@ public class Reminder {
 
     public void setRemtime(int remtime) {
         this.remtime = remtime;
+    }
+
+    public String getRemdosage() {
+        return remdosage;
+    }
+
+    public void setRemdosage(String remdosage) {
+        this.remdosage = remdosage;
     }
 }

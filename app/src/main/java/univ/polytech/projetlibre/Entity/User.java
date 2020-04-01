@@ -14,7 +14,7 @@ public class User implements Serializable{
     private String phone;
 
     //Construction Fonction
-    public User(String lastname, String firstname, int userID, String address, int birthday, int sex, String phone) {
+    public User(int userID, String lastname, String firstname, String address, int birthday, int sex, String phone) {
         this.lastname = lastname;
         this.firstname = firstname;
         this.userID = userID;

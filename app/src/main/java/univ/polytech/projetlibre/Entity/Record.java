@@ -5,14 +5,17 @@ import java.sql.Date;
 import java.sql.Time;
 
 public class Record {
+
     //Entity for Records
+    private int recID;
     private int userID;
     private int medID;
     private int recdate;
     private int rectime;
 
     //Construction Fonction
-    public Record(int userID, int medID, int recdate, int rectime) {
+    public Record(int recID, int userID, int medID, int recdate, int rectime) {
+        this.recID = recID;
         this.userID = userID;
         this.medID = medID;
         this.recdate = recdate;
@@ -20,6 +23,14 @@ public class Record {
     }
 
     //Getter and Setter for Records
+    public int getRecID() {
+        return recID;
+    }
+
+    public void setRecID(int recID) {
+        this.recID = recID;
+    }
+
     public int getUserID() {
         return userID;
     }

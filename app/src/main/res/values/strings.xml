@@ -2,6 +2,15 @@
     <string name="app_name">Health Care Application</string>
     <string name="title_activity_remind_list">RemindListActivity</string>
     <string name="title_activity_medicine_list">MedicineListActivity</string>
+    <string name="title_activity_user_list">UserList</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string-array name="spinnerdosageunit">
         <item>tablet</item>
         <item>g</item>

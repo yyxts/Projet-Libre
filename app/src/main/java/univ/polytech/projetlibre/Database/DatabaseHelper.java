@@ -30,38 +30,39 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         //public User(String lastname, String firstname, int userID, String address, int birthday, int sex, String phone)
         String sql = "create table if not exists user(" +
-                "userid int PRIMARY KEY, " +
+                "userid integer NOT NULL PRIMARY KEY, " +
                 "lastname varchar(20), " +
                 "firstname varchar(20), " +
                 "address varchar(20), " +
-                "birthday int, " +
-                "sex int, " +
+                "birthday integer, " +
+                "sex integer, " +
                 "phone varchar(20))";
         db.execSQL(sql);
         //public Medicine(String medname, int medID, int medexpiredate)
         String sql1 = "create table if not exists medicine(" +
-                "medid int PRIMARY KEY, " +
+                "medid integer NOT NULL PRIMARY KEY, " +
                 "medname varchar(20), " +
-                "medexpiredate int)";
+                "medexpiredate integer)";
         db.execSQL(sql1);
         Log.i("Database","Database create successful!");
 
 
         String sql2 = "create table if not exists reminder(" +
-                "remid int PRIMARY KEY,  " +
-                "remtime int, " +
-                "remuserid int, " +
-                "remmedid int, " +
+                "remid integer NOT NULL PRIMARY KEY,  " +
+                "remtime integer, " +
+                "remdosage text, " +
+                "remuserid integer, " +
+                "remmedid integer, " +
                 "FOREIGN KEY(remuserid) REFERENCES user(userid), " +
                 "FOREIGN KEY(remmedid) REFERENCES medicine(medid))";
         db.execSQL(sql2);
 
         String sql3 = "create table if not exists record(" +
-                "recid int PRIMARY KEY, " +
-                "recdate int, " +
-                "rectime int, " +
-                "recuserid int, " +
-                "recmedid int, " +
+                "recid integer NOT NULL PRIMARY KEY, " +
+                "recdate integer, " +
+                "rectime integer, " +
+                "recuserid integer, " +
+                "recmedid integer, " +
                 "FOREIGN KEY(recuserid) REFERENCES user(userid), " +
                 "FOREIGN KEY(recmedid) REFERENCES medicine(medid))";
         db.execSQL(sql3);
