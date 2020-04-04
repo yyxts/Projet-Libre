@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonRecord;
     private Button buttonQuit;
     private Button buttonRecordList;
+    private Button buttonUserList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         buttonQuit = findViewById(R.id.button3);
         buttonRecord = findViewById(R.id.button4);
         buttonRecordList = findViewById(R.id.button5);
+        buttonUserList = findViewById(R.id.button6);
 
 
 /*
@@ -155,6 +157,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        buttonUserList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,UserListActivity.class);
+                intent.putExtra("flag",3);
+                startActivity(intent);
+            }
+        });
+
         buttonQuit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -166,6 +177,8 @@ public class MainActivity extends AppCompatActivity {
                 System.exit(0);
             }
         });
+
+
 
 
 

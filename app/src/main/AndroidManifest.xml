@@ -32,7 +32,8 @@
         <receiver android:name=".Tools.AlertReceiver" />
         <receiver android:name=".Tools.NotificationClickReceiver" />
 
-        <activity android:name=".Activity.RecordListActivity"></activity>
+        <activity android:name=".Activity.RecordListActivity" />
+        <activity android:name=".Activity.AddUserActivity"></activity>
     </application>
 
 </manifest>

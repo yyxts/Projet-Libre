@@ -3,6 +3,7 @@ package univ.polytech.projetlibre.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +35,7 @@ public class UserListActivity extends AppCompatActivity {
     private List<Map<String, Object>> datalist;
     private String selectusername;
     private int flag;
+    private FloatingActionButton FAB_adduser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,19 @@ public class UserListActivity extends AppCompatActivity {
        flag = (int)intent.getSerializableExtra("flag");
 
         lv = findViewById(R.id.ListViewUser);
+        FAB_adduser = findViewById(R.id.floatingActionButton3);
+
+        if(flag!=3){
+            FAB_adduser.hide();
+        }
+
+        FAB_adduser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserListActivity.this,AddUserActivity.class);
+                startActivity(intent);
+            }
+        });
 
         DatabaseHelper Helper = new DatabaseHelper(UserListActivity.this,"database");
         SQLiteDatabase db = Helper.getWritableDatabase();

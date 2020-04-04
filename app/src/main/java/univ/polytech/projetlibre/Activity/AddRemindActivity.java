@@ -51,6 +51,7 @@ public class AddRemindActivity extends AppCompatActivity{
     private NumberPicker numberPickerdosagenumber;
     private Spinner spinnerdosageunit;
     private List<String> dataList;
+    private List<String> medicinenameList;
     private ArrayAdapter<String> adapter;
     private Spinner medicinespinner;
     private int remindernumber = 0;
@@ -128,9 +129,11 @@ public class AddRemindActivity extends AppCompatActivity{
 
         datalistmedicine = new ArrayList<>();
 
+        medicinenameList = new ArrayList<>();
+
         queryData();
 
-        ArrayAdapter medicineadapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line,getData());
+        ArrayAdapter medicineadapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line,medicinenameList);
 
         medicinespinner.setAdapter(medicineadapter);
 
@@ -328,8 +331,10 @@ public class AddRemindActivity extends AppCompatActivity{
 
 
                 medicine_set.add(new Medicine(medID, medname, medexpiredate));
+                medicinenameList.add(medname);
             }
         }
+        medicinenameList.add("I want to add a new medicine");
 
         Cursor cursor2 = db.rawQuery("select * from reminder",null);
         if(cursor2 != null){
