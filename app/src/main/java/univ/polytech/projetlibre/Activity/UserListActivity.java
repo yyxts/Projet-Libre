@@ -33,11 +33,16 @@ public class UserListActivity extends AppCompatActivity {
     private SimpleAdapter list_adapter;
     private List<Map<String, Object>> datalist;
     private String selectusername;
+    private int flag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_list);
+
+        Intent intent = this.getIntent();
+
+       flag = (int)intent.getSerializableExtra("flag");
 
         lv = findViewById(R.id.ListViewUser);
 
@@ -54,17 +59,33 @@ public class UserListActivity extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int total = user_set.size();
-                int userclickID = position+1;
+                if(flag == 2){
+                    int total = user_set.size();
+                    int userclickID = position+1;
 
-                ArrayList<User> listuser = new ArrayList<User>(user_set);
-                selectusername = listuser.get(position).getLastname() + listuser.get(position).getFirstname();
-                Toast.makeText(UserListActivity.this, "userID is : "+ (position+1), Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(UserListActivity.this,RemindListActivity.class);
-                intent.putExtra("userID",userclickID);
-                intent.putExtra("userName",selectusername);
-                startActivity(intent);
-                finish();
+                    ArrayList<User> listuser = new ArrayList<User>(user_set);
+                    selectusername = listuser.get(position).getLastname() + listuser.get(position).getFirstname();
+                    Toast.makeText(UserListActivity.this, "userID is : "+ (position+1), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(UserListActivity.this,RecordListActivity.class);
+                    intent.putExtra("userID",userclickID);
+                    intent.putExtra("userName",selectusername);
+                    startActivity(intent);
+                    finish();
+                }else{
+                    int total = user_set.size();
+                    int userclickID = position+1;
+
+                    ArrayList<User> listuser = new ArrayList<User>(user_set);
+                    selectusername = listuser.get(position).getLastname() + listuser.get(position).getFirstname();
+                    Toast.makeText(UserListActivity.this, "userID is : "+ (position+1), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(UserListActivity.this,RemindListActivity.class);
+                    intent.putExtra("userID",userclickID);
+                    intent.putExtra("userName",selectusername);
+                    intent.putExtra("flag",flag);
+                    startActivity(intent);
+                    finish();
+                }
+
             }
         });
     }

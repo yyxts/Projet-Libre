@@ -61,6 +61,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "recid integer NOT NULL PRIMARY KEY, " +
                 "recdate integer, " +
                 "rectime integer, " +
+                "recdosage text, " +
+                "reccomment text, " +
                 "recuserid integer, " +
                 "recmedid integer, " +
                 "FOREIGN KEY(recuserid) REFERENCES user(userid), " +

@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -31,6 +32,7 @@ public class RemindListActivity extends Activity {
     private FloatingActionButton FAB;
     private ListView rlv;
     private int getuserID;
+    private int flag;
     private String getuserName;
     private LinkedHashSet<Reminder> reminder_set;
     private SimpleAdapter list_adapter;
@@ -38,6 +40,9 @@ public class RemindListActivity extends Activity {
     private List<String> medicinenameList = new ArrayList<>();
     private List<Integer> reminderIDList = new ArrayList<>();
     private List<Integer> medicineIDList = new ArrayList<>();
+    private List<Integer> recordtimeList = new ArrayList<>();
+    private List<String> recorddosageList = new ArrayList<>();
+
 
 
 
@@ -54,6 +59,7 @@ public class RemindListActivity extends Activity {
 
         getuserID = (int)intent.getSerializableExtra("userID");
         getuserName = (String)intent.getSerializableExtra("userName");
+        flag = (int)intent.getSerializableExtra("flag");
 
         FAB.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,13 +85,37 @@ public class RemindListActivity extends Activity {
         rlv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(flag == 0){
+                    Intent intent = new Intent(RemindListActivity.this,ModificationRemindActivity.class);
+                    intent.putExtra("userID",getuserID);
+                    intent.putExtra("reminderID",reminderIDList.get(position));
+                    intent.putExtra("medicineID",medicineIDList.get(position));
+                    startActivity(intent);
+                    finish();
+                }else{
+                    Intent intent = new Intent(RemindListActivity.this,AddRecordActivity.class);
+                    //        String sql3 = "create table if not exists record(" +
+                    //                "recid integer NOT NULL PRIMARY KEY, " +
+                    //                "recdate integer, " +
+                    //                "rectime integer, " +
+                    //                "recuserid integer, " +
+                    //                "recmedid integer, " +
+                    //                "FOREIGN KEY(recuserid) REFERENCES user(userid), " +
+                    //                "FOREIGN KEY(recmedid) REFERENCES medicine(medid))";
+                    //        db.execSQL(sql3);
+                    intent.putExtra("userID",getuserID);
+                    intent.putExtra("reminderID",reminderIDList.get(position));
+                    intent.putExtra("medicineID",medicineIDList.get(position));
+                    intent.putExtra("userName",getuserName);
+                    intent.putExtra("recorddosage",recorddosageList.get(position));
+                    intent.putExtra("recordtime",recordtimeList.get(position));
+                    intent.putExtra("medicinename",medicinenameList.get(position));
 
-                Intent intent = new Intent(RemindListActivity.this,ModificationRemindActivity.class);
-                intent.putExtra("userID",getuserID);
-                intent.putExtra("reminderID",reminderIDList.get(position));
-                intent.putExtra("medicineID",medicineIDList.get(position));
-                startActivity(intent);
-                finish();
+
+                    startActivity(intent);
+                    finish();
+                }
+
             }
         });
 
@@ -126,6 +156,8 @@ public class RemindListActivity extends Activity {
                 reminder_set.add(new Reminder(remID, remtime, remdosage, remuserID, remmedID));
                 reminderIDList.add(remID);
                 medicineIDList.add(remmedID);
+                recordtimeList.add(remtime);
+                recorddosageList.add(remdosage);
             }
         }
 

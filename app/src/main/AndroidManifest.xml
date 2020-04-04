@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="univ.polytech.projetlibre">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_healthcare"
@@ -9,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.AddRecordActivity"></activity>
+        <activity android:name=".Activity.AddRecordActivity" />
         <activity android:name=".Activity.ModificationRemindActivity" />
         <activity android:name=".Activity.ModificationMedicineActivity" />
         <activity android:name=".Activity.MedicineListActivity" />
@@ -26,11 +29,10 @@
             android:name=".Activity.RemindListActivity"
             android:label="@string/title_activity_remind_list" />
 
-        <receiver android:name=".Tools.NotificationClickReceiver" />
         <receiver android:name=".Tools.AlertReceiver" />
-    </application>
-    <uses-permission android:name="android.permission.INTERNET" />
+        <receiver android:name=".Tools.NotificationClickReceiver" />
 
-    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+        <activity android:name=".Activity.RecordListActivity"></activity>
+    </application>
 
 </manifest>

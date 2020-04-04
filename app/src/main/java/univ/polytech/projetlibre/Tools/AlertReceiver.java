@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
 public class AlertReceiver extends BroadcastReceiver {
     @Override
@@ -12,6 +13,8 @@ public class AlertReceiver extends BroadcastReceiver {
 
         NotificationHelper notificationHelper = new NotificationHelper(context);
         NotificationCompat.Builder nb = notificationHelper.getChannelNotification(message);
-        notificationHelper.getManager().notify(1, nb.build());
+        int randomnumber = (int)Math.random() * 100;
+        notificationHelper.getManager().notify(randomnumber, nb.build());
+        Log.i("setAlarm","Notify ID:"+randomnumber);
     }
 }

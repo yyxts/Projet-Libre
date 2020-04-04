@@ -19,7 +19,9 @@ public class MainActivity extends AppCompatActivity {
 
     private Button buttonReminder;
     private Button buttonMedicine;
+    private Button buttonRecord;
     private Button buttonQuit;
+    private Button buttonRecordList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
         buttonReminder = findViewById(R.id.button1);
         buttonMedicine = findViewById(R.id.button2);
         buttonQuit = findViewById(R.id.button3);
+        buttonRecord = findViewById(R.id.button4);
+        buttonRecordList = findViewById(R.id.button5);
+
+
 /*
         //Database helper
         DatabaseHelper dbHelper = new DatabaseHelper(MainActivity.this, "database");
@@ -110,15 +116,14 @@ public class MainActivity extends AppCompatActivity {
         db2.insert("reminder", null, reminder1);
         db2.insert("reminder",null, reminder2);
 
-    
 */
 
-
-
+        //flag = 0 reminder  flag=1 record flag=2 recordlist
         buttonReminder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,UserListActivity.class);
+                intent.putExtra("flag",0);
                 startActivity(intent);
             }
         });
@@ -129,6 +134,24 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this,MedicineListActivity.class);
                 startActivity(intent);
 
+            }
+        });
+
+        buttonRecord.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,UserListActivity.class);
+                intent.putExtra("flag",1);
+                startActivity(intent);
+            }
+        });
+
+        buttonRecordList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,UserListActivity.class);
+                intent.putExtra("flag",2);
+                startActivity(intent);
             }
         });
 

@@ -142,12 +142,14 @@ public class ModificationRemindActivity extends AppCompatActivity {
 
     }
 
+
     private void cancelAlarm(){
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, AlertReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, selectreminderID, intent, 0);
         //Cancel Old alarm
         alarmManager.cancel(pendingIntent);
+        Log.i("Cancel success Alarm","Alarm ID:"+selectreminderID);
     }
 
     private void startnewAlarm(Calendar c, String message) {
@@ -163,6 +165,7 @@ public class ModificationRemindActivity extends AppCompatActivity {
 
         //Repeat Alarm
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(), INTERVAL, pendingIntent);
+        Log.i("setAlarm","Alarm ID:"+selectreminderID);
     }
 
     private int timeTransfer(String time){
