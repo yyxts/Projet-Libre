@@ -23,6 +23,8 @@ import univ.polytech.projetlibre.Database.DatabaseHelper;
 import univ.polytech.projetlibre.Entity.User;
 import univ.polytech.projetlibre.R;
 
+//Activity for adding a user
+
 public class AddUserActivity extends AppCompatActivity {
     private Spinner sexspinner;
     private Button button_finish;

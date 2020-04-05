@@ -1,5 +1,7 @@
 package univ.polytech.projetlibre.Adapter;
 
+//The simple wheel adapter
+
 public interface WheelAdapter {
     /**
      * Gets items count

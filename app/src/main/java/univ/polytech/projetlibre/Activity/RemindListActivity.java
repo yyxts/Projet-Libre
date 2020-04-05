@@ -27,6 +27,8 @@ import univ.polytech.projetlibre.Entity.Reminder;
 import univ.polytech.projetlibre.Entity.User;
 import univ.polytech.projetlibre.R;
 
+//Activity for the list of remind
+
 public class RemindListActivity extends Activity {
 
     private FloatingActionButton FAB;
@@ -61,6 +63,10 @@ public class RemindListActivity extends Activity {
         getuserName = (String)intent.getSerializableExtra("userName");
         flag = (int)intent.getSerializableExtra("flag");
 
+        if(flag==1){
+            FAB.hide();
+        }
+
         FAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,15 +100,6 @@ public class RemindListActivity extends Activity {
                     finish();
                 }else{
                     Intent intent = new Intent(RemindListActivity.this,AddRecordActivity.class);
-                    //        String sql3 = "create table if not exists record(" +
-                    //                "recid integer NOT NULL PRIMARY KEY, " +
-                    //                "recdate integer, " +
-                    //                "rectime integer, " +
-                    //                "recuserid integer, " +
-                    //                "recmedid integer, " +
-                    //                "FOREIGN KEY(recuserid) REFERENCES user(userid), " +
-                    //                "FOREIGN KEY(recmedid) REFERENCES medicine(medid))";
-                    //        db.execSQL(sql3);
                     intent.putExtra("userID",getuserID);
                     intent.putExtra("reminderID",reminderIDList.get(position));
                     intent.putExtra("medicineID",medicineIDList.get(position));

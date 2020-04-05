@@ -26,6 +26,8 @@ import univ.polytech.projetlibre.Entity.Medicine;
 import univ.polytech.projetlibre.Entity.User;
 import univ.polytech.projetlibre.R;
 
+//Activity for the list of user
+
 public class UserListActivity extends AppCompatActivity {
 
     private ListView lv;

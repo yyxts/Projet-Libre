@@ -23,6 +23,8 @@ import univ.polytech.projetlibre.Entity.Record;
 import univ.polytech.projetlibre.Entity.Reminder;
 import univ.polytech.projetlibre.R;
 
+//Activity for adding a record
+
 public class AddRecordActivity extends AppCompatActivity {
 
     private int recorduserID;
@@ -67,7 +69,7 @@ public class AddRecordActivity extends AppCompatActivity {
         recordusername = (String)intent.getSerializableExtra("userName");
         recorddosage = (String)intent.getSerializableExtra("recorddosage");
         recordtime = (int)intent.getSerializableExtra("recordtime");
-        //recorddate = (int)intent.getSerializableExtra("recorddate");
+
         recordmedicinename = (String)intent.getSerializableExtra("medicinename");
 
         Calendar cal=Calendar.getInstance();
@@ -104,17 +106,6 @@ public class AddRecordActivity extends AppCompatActivity {
 
                 DatabaseHelper Helper = new DatabaseHelper(AddRecordActivity.this,"database");
                 SQLiteDatabase db1 = Helper.getWritableDatabase();
-
-                //String sql3 = "create table if not exists record(" +
-                //                "recid integer NOT NULL PRIMARY KEY, " +
-                //                "recdate integer, " +
-                //                "rectime integer, " +
-                //                "recdosage text, " +
-                //                "reccomment text, " +
-                //                "recuserid integer, " +
-                //                "recmedid integer, " +
-                //                "FOREIGN KEY(recuserid) REFERENCES user(userid), " +
-                //                "FOREIGN KEY(recmedid) REFERENCES medicine(medid))";
 
 
                 ContentValues newrecord = new ContentValues();
@@ -183,16 +174,6 @@ public class AddRecordActivity extends AppCompatActivity {
         Cursor cursor = db.rawQuery("select * from record",null);
         if(cursor != null){
             while(cursor.moveToNext()){
-                //String sql3 = "create table if not exists record(" +
-                //                "recid integer NOT NULL PRIMARY KEY, " +
-                //                "recdate integer, " +
-                //                "rectime integer, " +
-                //                "recdosage text, " +
-                //                "reccomment text, " +
-                //                "recuserid integer, " +
-                //                "recmedid integer, " +
-                //                "FOREIGN KEY(recuserid) REFERENCES user(userid), " +
-                //                "FOREIGN KEY(recmedid) REFERENCES medicine(medid))";
                 int recID = cursor.getInt(cursor.getColumnIndex("recid"));
                 int recdate = cursor.getInt(cursor.getColumnIndex("recdate"));
                 int rectime = cursor.getInt(cursor.getColumnIndex("rectime"));

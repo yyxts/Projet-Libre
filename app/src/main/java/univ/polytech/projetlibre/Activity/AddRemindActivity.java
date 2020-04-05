@@ -44,6 +44,8 @@ import univ.polytech.projetlibre.Entity.User;
 import univ.polytech.projetlibre.R;
 import univ.polytech.projetlibre.Tools.AlertReceiver;
 
+//Activity for adding a remind
+
 public class AddRemindActivity extends AppCompatActivity{
 
     private NumberPicker numberPickerhour;
@@ -286,7 +288,7 @@ public class AddRemindActivity extends AppCompatActivity{
 
                 Log.i("alarmmessage",alarmmessage);
 
-                startAlarm(c, alarmmessage);
+                startAlarm(c, alarmmessage,newreminderID);
 
 
                 Intent intent = new Intent(AddRemindActivity.this,MainActivity.class);
@@ -300,10 +302,11 @@ public class AddRemindActivity extends AppCompatActivity{
     }
 
 
-    private void startAlarm(Calendar c, String message) {
+    private void startAlarm(Calendar c, String message, int remid) {
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, AlertReceiver.class);
         intent.putExtra("message", message);
+        intent.putExtra("remid",remid);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, 0);
 
         if (c.before(Calendar.getInstance())) {

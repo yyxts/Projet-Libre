@@ -21,6 +21,8 @@ import univ.polytech.projetlibre.Entity.Medicine;
 import univ.polytech.projetlibre.Entity.User;
 import univ.polytech.projetlibre.R;
 
+//Activity for the list of medicine
+
 public class MedicineListActivity extends AppCompatActivity {
 
     private LinkedHashSet<Medicine> medicine_set;

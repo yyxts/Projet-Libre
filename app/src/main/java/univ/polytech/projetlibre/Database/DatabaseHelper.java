@@ -7,6 +7,8 @@ import android.util.Log;
 
 import pl.com.salsoft.sqlitestudioremote.SQLiteStudioService;
 
+//This class is for create database, tables and override the open database methode
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final int VERSION = 1;

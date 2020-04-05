@@ -13,6 +13,7 @@ import android.support.v4.app.NotificationCompat;
 
 import univ.polytech.projetlibre.R;
 
+//This class is for receive the notification(Alarm)
 public class NotificationHelper extends ContextWrapper {
     public static final String channelID = "channelID";
     public static final String channelName = "Channel Name";
@@ -41,16 +42,29 @@ public class NotificationHelper extends ContextWrapper {
         return mManager;
     }
 
-    public NotificationCompat.Builder getChannelNotification(String message) {
-       return new NotificationCompat.Builder(getApplicationContext(), channelID)
+    public NotificationCompat.Builder getChannelNotification(String message, int id) {
+        Intent clickIntent = new Intent(getApplicationContext(),NotificationClickReceiver.class);
+        clickIntent.putExtra("remid",id);
+        int id1 = (int) (System.currentTimeMillis() / 1000);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(), id1, clickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+      return new NotificationCompat.Builder(getApplicationContext(), channelID)
         .setContentTitle("Health Care Reminder")
         .setContentText(message)
         .setSmallIcon(R.mipmap.ic_healthcare)
+        .setContentIntent(pendingIntent)
         .setDefaults(Notification.DEFAULT_ALL)
         .setAutoCancel(true);
-
-
-
+        /*NotificationCompat.Builder builder1 = new NotificationCompat.Builder(getApplicationContext(), channelID);
+        builder1.setContentTitle("Health Care Reminder");
+        builder1.setContentText(message);
+        builder1.setSmallIcon(R.mipmap.ic_healthcare);
+        builder1.setDefaults(Notification.DEFAULT_ALL);
+        builder1.setAutoCancel(true);
+        Intent intent =new Intent (this,NotificationClickReceiver.class);
+        PendingIntent pendingIntent =PendingIntent.getBroadcast(this, 0, intent, 0);
+        builder1.setContentIntent(pendingIntent);
+        return builder1;*/
 
 
     }

@@ -25,6 +25,8 @@ import univ.polytech.projetlibre.Entity.Reminder;
 import univ.polytech.projetlibre.Entity.User;
 import univ.polytech.projetlibre.R;
 
+//Activity for the list of record
+
 public class RecordListActivity extends AppCompatActivity {
 
     private ListView listView_record;

@@ -29,6 +29,8 @@ import univ.polytech.projetlibre.Entity.User;
 import univ.polytech.projetlibre.R;
 import univ.polytech.projetlibre.Tools.AlertReceiver;
 
+//Activity for modification remind informations
+
 public class ModificationRemindActivity extends AppCompatActivity {
 
     private TextView tv_reminduser;
@@ -112,7 +114,7 @@ public class ModificationRemindActivity extends AppCompatActivity {
                 db.update("reminder",reminder,"remid=?",new String[]{String.valueOf(selectreminderID)});
                 db.close();
 
-                alarmmessage = usernameList.get(0) + " please take " + newreminderdosage + " " + medicinenameList.get(0) + newremindertime;
+                alarmmessage = usernameList.get(0) + " please take " + newreminderdosage + " " + medicinenameList.get(0);
 
                 int alarmhour = newremindertime / 100;
                 int alarmminute = newremindertime - (alarmhour * 100);
@@ -126,10 +128,10 @@ public class ModificationRemindActivity extends AppCompatActivity {
 
                 cancelAlarm();
 
-                startnewAlarm(c, alarmmessage);
+                startnewAlarm(c, alarmmessage,selectreminderID);
 
 
-                Intent intent1 = new Intent(ModificationRemindActivity.this,RemindListActivity.class);
+                Intent intent1 = new Intent(ModificationRemindActivity.this,MainActivity.class);
                 intent1.putExtra("userID",selectuserID);
                 intent1.putExtra("userName",usernameList.get(0));
                 startActivity(intent1);
@@ -152,10 +154,11 @@ public class ModificationRemindActivity extends AppCompatActivity {
         Log.i("Cancel success Alarm","Alarm ID:"+selectreminderID);
     }
 
-    private void startnewAlarm(Calendar c, String message) {
+    private void startnewAlarm(Calendar c, String message,int remid) {
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, AlertReceiver.class);
         intent.putExtra("message", message);
+        intent.putExtra("remid",remid);
         //FLAG_UPDATE_CURRENT means update Intent
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, selectreminderID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 

@@ -1,5 +1,7 @@
 package univ.polytech.projetlibre.Adapter;
 
+//The simple Numeric wheel adapter
+
 public class NumericWheelAdapter implements WheelAdapter{
 
     /** The default min value */

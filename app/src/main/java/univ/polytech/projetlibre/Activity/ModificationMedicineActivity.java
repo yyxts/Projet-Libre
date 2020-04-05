@@ -22,6 +22,8 @@ import univ.polytech.projetlibre.Database.DatabaseHelper;
 import univ.polytech.projetlibre.Entity.Medicine;
 import univ.polytech.projetlibre.R;
 
+//Activity for modification medicine informations
+
 public class ModificationMedicineActivity extends AppCompatActivity {
 
     private TextView tv_medID;
